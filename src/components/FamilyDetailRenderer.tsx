@@ -48,11 +48,24 @@ export function FamilyDetailRenderer({
   };
 
   const columnDefs: ColDef[] = [
-    { field: 'relation', headerName: 'Relation', editable: true, flex: 1 },
-    { field: 'name', headerName: 'Name', editable: true, flex: 1 },
-    { field: 'age', headerName: 'Age', editable: true, flex: 1 },
+    {
+      field: 'relation',
+      colId: 'relation',
+      headerName: 'Relation',
+      editable: true,
+      flex: 1,
+    },
+    {
+      field: 'name',
+      colId: 'name',
+      headerName: 'Name',
+      editable: true,
+      flex: 1,
+    },
+    { field: 'age', colId: 'age', headerName: 'Age', editable: true, flex: 1 },
     {
       headerName: 'Actions',
+      colId: 'actions',
       cellRenderer: (params: { data: TPerson }) => (
         <button
           onClick={() => removeMember(params.data.id)}

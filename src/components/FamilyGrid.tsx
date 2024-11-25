@@ -20,11 +20,13 @@ export function FamilyGrid() {
   const columnDefs: ColDef[] = [
     {
       field: 'name',
+      colId: 'name',
       headerName: 'Family Name',
       cellRenderer: 'agGroupCellRenderer',
     },
     {
       headerName: 'No. of Members',
+      colId: 'memberCount',
       valueGetter: (params: { data: TFamily }) => {
         return params.data.members.length;
       },
