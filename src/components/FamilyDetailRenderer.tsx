@@ -32,11 +32,14 @@ export function FamilyDetailRenderer({
   }
 
   const addMember = (newMember: TPerson) => {
-    // This is a bug we should prevent adding duplicate names
-    // if (members.some((member) => member.name === newMember.name)) {
-    //   alert('A family member with this name already exists.');
-    //   return;
-    // }
+    if (
+      members.some(
+        (member) => member.name.toLowerCase() === newMember.name.toLowerCase()
+      )
+    ) {
+      alert('A family member with this name already exists.');
+      return;
+    }
 
     const updatedMembers = [...members, newMember];
     updateFamily(updatedMembers);
@@ -52,17 +55,17 @@ export function FamilyDetailRenderer({
       field: 'relation',
       colId: 'relation',
       headerName: 'Relation',
-      editable: true,
+      editable: false,
       flex: 1,
     },
     {
       field: 'name',
       colId: 'name',
       headerName: 'Name',
-      editable: true,
+      editable: false,
       flex: 1,
     },
-    { field: 'age', colId: 'age', headerName: 'Age', editable: true, flex: 1 },
+    { field: 'age', colId: 'age', headerName: 'Age', editable: false, flex: 1 },
     {
       headerName: 'Actions',
       colId: 'actions',

@@ -46,15 +46,9 @@ export function FamilyGrid() {
     // Check for duplicate family name
     const duplicateFamily = rowData.some(
       (family) =>
-        // should add toLowerCase() to make it case-insensitive
-        family.name === `${newFamilyName.trim()} Family`
+        family.name.toLowerCase() ===
+        `${newFamilyName.trim()} Family`.toLowerCase()
     );
-
-    // const duplicateFamily = rowData.some(
-    //   (family) =>
-    //     // should add toLowerCase() to make it case-insensitive
-    //     family.name.toLowerCase() === `${newFamilyName.trim().toLowerCase()} Family`
-    // );
 
     if (duplicateFamily) {
       alert('A family with this name already exists.');

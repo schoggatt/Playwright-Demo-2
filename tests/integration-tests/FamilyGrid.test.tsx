@@ -60,7 +60,7 @@ test.describe('FamilyTS Grid Tests', () => {
         'Enter Family Last Name'
       );
 
-      await addFamilyInput.fill('Lee');
+      await addFamilyInput.fill('lee');
 
       await page.getByRole('button', { name: 'Add Family' }).click();
 
@@ -217,7 +217,7 @@ test.describe('FamilyTS Grid Tests', () => {
       );
       await expect(subGridRows).toHaveCount(4);
 
-      await page.getByPlaceholder('First Name').fill('Emily');
+      await page.getByPlaceholder('First Name').fill('Erica');
       await page.getByPlaceholder('Relation').fill('Daughter');
       await page.getByPlaceholder('Age').fill('8');
 
@@ -226,7 +226,7 @@ test.describe('FamilyTS Grid Tests', () => {
       await expect(subGridRows).toHaveCount(5);
 
       const newRow = subGridRows.last();
-      await expect(newRow.locator('[col-id="name"]')).toContainText('Emily');
+      await expect(newRow.locator('[col-id="name"]')).toContainText('Erica');
       await expect(newRow.locator('[col-id="relation"]')).toContainText(
         'Daughter'
       );
@@ -246,7 +246,7 @@ test.describe('FamilyTS Grid Tests', () => {
       );
       await expect(subGridRows).toHaveCount(4);
 
-      await page.getByPlaceholder('First Name').fill('Emily');
+      await page.getByPlaceholder('First Name').fill('Erica');
       await page.getByPlaceholder('Relation').fill('Daughter');
       await page.getByPlaceholder('Age').fill('8');
 
@@ -256,7 +256,7 @@ test.describe('FamilyTS Grid Tests', () => {
 
       const newRow = subGridRows.last();
       await expect(newRow.locator('[col-id="name"]')).toContainText(
-        'Emily Smith'
+        'Erica Smith'
       );
       await expect(newRow.locator('[col-id="relation"]')).toContainText(
         'Daughter'
@@ -340,7 +340,7 @@ test.describe('FamilyTS Grid Tests', () => {
       );
       await expect(subGridRows).toHaveCount(4);
 
-      await page.getByPlaceholder('First Name').fill('Emily');
+      await page.getByPlaceholder('First Name').fill('Erica');
       await page.getByPlaceholder('Relation').fill('Daughter');
       await page.getByPlaceholder('Age').fill('8');
 
