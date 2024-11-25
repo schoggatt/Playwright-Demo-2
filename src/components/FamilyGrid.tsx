@@ -1,5 +1,5 @@
 import { useEffect, useState } from 'react';
-import { TFamily } from '../types/Family';
+import { familySchema, TFamily } from '../types/Family';
 import { AgGridReact } from 'ag-grid-react';
 import 'ag-grid-enterprise';
 import 'ag-grid-community/styles/ag-grid.css';
@@ -14,7 +14,7 @@ export function FamilyGrid() {
   const [newFamilyName, setNewFamilyName] = useState<string>('');
 
   useEffect(() => {
-    getFamilies().then((data) => setRowData(data));
+    getFamilies().then((data) => setRowData(familySchema.array().parse(data)));
   }, []);
 
   const columnDefs: ColDef[] = [
